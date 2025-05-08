@@ -1,8 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latihan2/bloc/todo_bloc_bloc.dart';
 
-class TodoPage extends StatelessWidget{
+class TodoPage extends StatelessWidget {
   const TodoPage({super.key});
 
   @override
@@ -16,10 +16,31 @@ class TodoPage extends StatelessWidget{
           child: Column(
             children: [
               Text('Todo List'),
-              Row()
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Text('Selected Date'),
+                      BlocBuilder<TodoBloc,TodoState>(
+                        builder: (context, state) {
+                          if (state is TodoLoaded) {
+                            if (state.selectedDate != null) {
+                              return Text(
+                                '${state.selectedDate!.day}/${state.selectedDate!.month}/${state.selectedDate!.year}',
+                              );
+                            }
+                          }
+                          return Text('No date selected');
+                        }
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 16.0),
+                ],
+              ),
             ],
-          )
-        )
+          ),
+        ),
       ),
     );
   }
