@@ -14,6 +14,10 @@ class TodoPage extends StatelessWidget{
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            children: [
+              Text('Todo List'),
+              Row()
+            ],
           )
         )
       ),
