@@ -28,4 +28,13 @@ class TodoDao {
       whereArgs: [todo.id],
     );
   }
+
+  Future<int> delete(int id) async {
+    final db = await dbProvider.database;
+    return await db.delete(
+      'todo',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
 }
