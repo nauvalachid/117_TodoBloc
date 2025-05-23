@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:latihan2/model/todo.dart';
+import 'package:latihan2/data/model/todo.dart';
 
 part 'todo_bloc_event.dart';
 part 'todo_bloc_state.dart';
